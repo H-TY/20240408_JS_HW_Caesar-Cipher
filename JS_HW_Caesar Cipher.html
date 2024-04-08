@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // let pw = "meet me after the toga party"
+
+        // let i = 3
+
+        // let Npw = []
+
+        // for (let x in pw) {
+        //     document.write(Npw.push((pw.charCodeAt(x) + 3)) + '<br>')
+        // }
+
+
+
+        let pw = "meet me after the toga party"
+
+        let i = 3
+
+        // 轉出後→ 密文: PHHW PH DIWHU WKH WRJD SDUWB
+
+        let Npw = []
+
+        for (let x in pw) {
+            Npw.push(String.fromCharCode((pw.charCodeAt(x) + 3)))
+            if (pw.charCodeAt(x) + 3 == 32 + 3) {
+                continue
+            } else if (pw.charCodeAt(x) + 3 > 122) {
+                (pw.charCodeAt(x) + 3) - 25
+            }
+            console.log(Npw)
+        }
+
+        // 刪除陣列中的逗號,
+        let Npw1 = Npw.join('')
+        document.write(Npw1)
+
+        // 轉成大寫英文
+        document.write(Npw1.toUpperCase())
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+</script>
+
+</body>
+
+</html>
