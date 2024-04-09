@@ -12,44 +12,56 @@
     <script>
 
         // let pw = "meet me after the toga party"
-
         // let i = 3
+        // 密文: PHHW PH DIWHU WKH WRJD SDUWB
 
-        // let Npw = []
-
-        // for (let x in pw) {
-        //     document.write(Npw.push((pw.charCodeAt(x) + 3)) + '<br>')
-        // }
-
+        // let pw = "aXvz YrBE"
+        // let i = 3
+        // // 密文: DAYC BUEH
 
 
-        let pw = "meet me after the toga party"
-
-        let i = 3
-
-        // 轉出後→ 密文: PHHW PH DIWHU WKH WRJD SDUWB
-
+        let pw = prompt('英文密碼（英文明文）')
+        let i = parseInt(prompt('請輸入數字密鑰（隨機一個數字）'))
         let Npw = []
 
+        // // ●方法1：
+        // for (let x in pw) {
+
+        //     // 空白字元保留，不加數字密鑰
+        //     if (pw.charCodeAt(x) == 32) {
+        //         Npw.push(String.fromCharCode(32))
+
+        //         // 超過小寫英文字元編號122時，需減26
+        //     } else if ((pw.charCodeAt(x) + i) > 122) {
+        //         Npw.push(String.fromCharCode((pw.charCodeAt(x) + i) - 26))
+
+        //         // 超過大寫英文字元編號90時，需+6
+        //     } else if ((pw.charCodeAt(x) + i) > 90 && (pw.charCodeAt(x) + i) < 97) {
+        //         Npw.push(String.fromCharCode((pw.charCodeAt(x) + i) + 6))
+
+        //     } else {
+        //         Npw.push(String.fromCharCode((pw.charCodeAt(x) + i)))
+        //     }
+        // }
+        // console.log(Npw)
+
+
+        // ●方法2（請教詹邵斌）：
         for (let x in pw) {
-            Npw.push(String.fromCharCode((pw.charCodeAt(x) + 3)))
-            if (pw.charCodeAt(x) + 3 == 32 + 3) {
-                continue
-            } else if (pw.charCodeAt(x) + 3 > 122) {
-                (pw.charCodeAt(x) + 3) - 25
-            }
-            console.log(Npw)
+            if (pw[x] == ' ') {
+                Npw.push(' ')
+                // let pwtoLowerCase = pw.toLowerCase()
+                // pwtoLowerCase.charCodeAt(x) = pw.toLowerCase().charCodeAt(x)
+            } else if (pw.toLowerCase().charCodeAt(x) + i > 'z'.charCodeAt(0)) {
+                Npw.push(String.fromCharCode((pw.charCodeAt(x) + i) - 26))
+            } else { Npw.push(String.fromCharCode(pw.toLowerCase().charCodeAt(x) + i)) }
         }
 
         // 刪除陣列中的逗號,
         let Npw1 = Npw.join('')
-        document.write(Npw1)
 
         // 轉成大寫英文
-        document.write(Npw1.toUpperCase())
-
-
-
+        document.write(`您輸入的英文密碼為${pw}<br>數字密鑰：${i}<br>轉出密文為：${Npw1.toUpperCase()}`)
 
 
 
