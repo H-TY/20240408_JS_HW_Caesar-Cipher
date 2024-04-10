@@ -24,38 +24,38 @@
         let i = parseInt(prompt('請輸入數字密鑰（隨機一個數字）'))
         let Npw = []
 
-        // // ●方法1：
-        // for (let x in pw) {
-
-        //     // 空白字元保留，不加數字密鑰
-        //     if (pw.charCodeAt(x) == 32) {
-        //         Npw.push(String.fromCharCode(32))
-
-        //         // 超過小寫英文字元編號122時，需減26
-        //     } else if ((pw.charCodeAt(x) + i) > 122) {
-        //         Npw.push(String.fromCharCode((pw.charCodeAt(x) + i) - 26))
-
-        //         // 超過大寫英文字元編號90時，需+6
-        //     } else if ((pw.charCodeAt(x) + i) > 90 && (pw.charCodeAt(x) + i) < 97) {
-        //         Npw.push(String.fromCharCode((pw.charCodeAt(x) + i) + 6))
-
-        //     } else {
-        //         Npw.push(String.fromCharCode((pw.charCodeAt(x) + i)))
-        //     }
-        // }
-        // console.log(Npw)
-
-
-        // ●方法2（請教詹邵斌）：
+        // ●方法1：
         for (let x in pw) {
-            if (pw[x] == ' ') {
-                Npw.push(' ')
-                // let pwtoLowerCase = pw.toLowerCase()
-                // pwtoLowerCase.charCodeAt(x) = pw.toLowerCase().charCodeAt(x)
-            } else if (pw.toLowerCase().charCodeAt(x) + i > 'z'.charCodeAt(0)) {
+
+            // 空白字元保留，不加數字密鑰
+            if (pw.charCodeAt(x) == 32) {
+                Npw.push(String.fromCharCode(32))
+
+                // 超過小寫英文字元編號122時，需減26
+            } else if ((pw.charCodeAt(x) + i) > 122) {
                 Npw.push(String.fromCharCode((pw.charCodeAt(x) + i) - 26))
-            } else { Npw.push(String.fromCharCode(pw.toLowerCase().charCodeAt(x) + i)) }
+
+                // 超過大寫英文字元編號90時，需+6
+            } else if ((pw.charCodeAt(x) + i) > 90 && (pw.charCodeAt(x) + i) < 97) {
+                Npw.push(String.fromCharCode((pw.charCodeAt(x) + i) + 6))
+
+            } else {
+                Npw.push(String.fromCharCode((pw.charCodeAt(x) + i)))
+            }
         }
+        console.log(Npw)
+
+
+        // // ●方法2（請教詹邵斌）：
+        // for (let x in pw) {
+        //     if (pw[x] == ' ') {
+        //         Npw.push(' ')
+        //         // let pwtoLowerCase = pw.toLowerCase()
+        //         // pwtoLowerCase.charCodeAt(x) = pw.toLowerCase().charCodeAt(x)
+        //     } else if (pw.toLowerCase().charCodeAt(x) + i > 'z'.charCodeAt(0)) {
+        //         Npw.push(String.fromCharCode((pw.charCodeAt(x) + i) - 26))
+        //     } else { Npw.push(String.fromCharCode(pw.toLowerCase().charCodeAt(x) + i)) }
+        // }
 
         // 刪除陣列中的逗號,
         let Npw1 = Npw.join('')
